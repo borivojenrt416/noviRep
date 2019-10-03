@@ -1,0 +1,15 @@
+li{
+    list-style-type: none;
+    margin-right:3vh;
+    font-weight: bold;
+    display:inline;
+    color:white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
+ 
+
+li:hover{
+    color:rgb(255, 209, 139);
+}
