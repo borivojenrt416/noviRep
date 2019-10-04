@@ -1,12 +1,25 @@
 .products{
+    
     float:left;
     text-align:left;
     font-size:1.2vw;
     line-height:70px;
     border-right:1px solid black;
-    padding-right:4vh;
-    color:black;
+   
+    padding:1vw;
+    color:white;
     margin-top:1vh;
     font-family: 'Courier New', Courier, monospace;
+    background-color:  rgb(78, 34, 34);;
+    
+    
+    
 }
 
+
+.side{
+    float:left;
+    padding:1vw;
+    color:black;
+ 
+}
