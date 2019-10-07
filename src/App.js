@@ -9,7 +9,7 @@ import Proizvodi from './stranice/proizvodi/proizvodi'
 import Heder from './stranice/komponente/heder'
 import { Switch } from 'react-router/esm/react-router';
 import './stranice/proizvodi/proizvodi.css'
-
+import Futer from './stranice/komponente/futer'
 function App() {
   return (
 
@@ -25,7 +25,7 @@ function App() {
        <Route component={Error}/>
      </Switch>
      </div>
- 
+    <Futer />
     </div>
 
   );

@@ -1,0 +1,22 @@
+.futer{
+    clear:both;
+    
+}
+
+
+.call, .newsletter, .radnoVremeCall{
+float:left;
+width:33.3%;
+padding-left:0;
+background-color: rgb(97,97,97);
+height:12vw;
+color:white;
+text-align: center;
+padding:2vh 0;
+}
+
+
+.radnoVremeCall{
+    text-align: left;
+    line-height: 1.2vw;
+}

@@ -1,25 +1,39 @@
 .products{
-    
     float:left;
     text-align:left;
     font-size:1.2vw;
     line-height:70px;
-    border-right:1px solid black;
-   
-    padding:1vw;
+    /* border-right:1px solid black; */
+    width:10%;
+    /* padding:1vw; */
     color:white;
     margin-top:1vh;
     font-family: 'Courier New', Courier, monospace;
-    background-color:  rgb(78, 34, 34);;
-    
-    
-    
+    background-color:  rgb(78, 34, 34);    
 }
 
-
+/* .des{
+    float:right;
+} */
 .side{
     float:left;
     padding:1vw;
     color:black;
+    
  
+}
+.radnje{
+    line-height: 1vw;
+}
+.unutra{
+    padding:1vh;
+    padding-bottom: 0;
+}
+.gde{
+    background-color: black;
+    font-size: 1.02vw;
+    line-height: 1.5vw;
+    padding:0.3vw;
+
+
 }
