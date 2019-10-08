@@ -10,6 +10,7 @@ import Heder from './stranice/komponente/heder'
 import { Switch } from 'react-router/esm/react-router';
 import './stranice/proizvodi/proizvodi.css'
 import Futer from './stranice/komponente/futer'
+import Omiljeno from './stranice/komponente/omiljeno'
 function App() {
   return (
 
@@ -21,6 +22,7 @@ function App() {
        <Route exact path="/home" component={Home}/>
        <Route exact path="/onama" component={Onama}/>
        <Route exact path="/proizvodi" component={Proizvodi}/>
+       <Route exact path="/omiljeno" component={Omiljeno}/>
        {/* <Route path={`${match.url}/:id`} component={Proizvodi}/> */}
        <Route component={Error}/>
      </Switch>

@@ -11,7 +11,8 @@ ul{
 }
 .hed{
     background-color: rgb(78, 34, 34);
-    font-family: 'Courier New', Courier, monospace;
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 
 }

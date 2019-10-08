@@ -12,9 +12,7 @@
     background-color:  rgb(78, 34, 34);    
 }
 
-/* .des{
-    float:right;
-} */
+
 .side{
     float:left;
     padding:1vw;
@@ -29,11 +27,4 @@
     padding:1vh;
     padding-bottom: 0;
 }
-.gde{
-    background-color: black;
-    font-size: 1.02vw;
-    line-height: 1.5vw;
-    padding:0.3vw;
 
-
-}

@@ -7,11 +7,15 @@ class Navigacija extends Component{
         const styleLinks = {
                 textDecoration : 'none',
                 fontSize:'1.2vw',
-                color:'black'
+                Color:'black'
                 
         }
 
-        
+        const desno={
+            textDecoration : 'none',
+                fontSize:'1.2vw',
+                float:'right'
+        }
         return(
 
         
@@ -21,7 +25,9 @@ class Navigacija extends Component{
                         <Link to="/home" style={styleLinks}><li>HOME</li></Link>
                         <Link to="/onama" style={styleLinks}><li>O NAMA</li></Link>
                         <Link to="/proizvodi" style={styleLinks}><li>PROIZVODI</li></Link>
+                        <Link style={desno}><li>OMILJENO♥</li></Link>
                     </ul>
+                   
                 </div>
         );
     }
