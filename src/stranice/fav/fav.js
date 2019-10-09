@@ -25,6 +25,7 @@ class Fav extends Component {
     this.setState({
       omiljeno: niz2
     });
+    localStorage.setItem("1",JSON.stringify(niz2))
   };
 
 
