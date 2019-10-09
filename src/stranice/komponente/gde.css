@@ -1,12 +1,12 @@
 .gde{
-    background-color: black;
+    background-color: white;
     font-size: 1.02vw;
     line-height: 1.5vw;
     padding:0.3vw;
-    float:left;
+    float:right;
     text-align: left;
     margin-top: 1vh; 
-    color:white;
+    color:black;
     
 
 }

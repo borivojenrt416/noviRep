@@ -1,10 +1,10 @@
 .products{
-    float:left;
+    float:right;
     text-align:left;
     font-size:1.2vw;
     line-height:70px;
     /* border-right:1px solid black; */
-    width:10%;
+    width:15%;
     /* padding:1vw; */
     color:white;
     margin-top:1vh;

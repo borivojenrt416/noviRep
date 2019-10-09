@@ -1,37 +1,41 @@
 import React, { Component } from "react";
 import "./kartica.css";
 import Fav from '../fav/fav'
-class Kartica extends Component {
+class KarticaOmiljeno extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       visible: false,
+      fav:[]
     };
   }
 
 
 
+
+
+
+
   render() {
+  
     // console.log(this.props.p[0].data);
     return (
   
       <div>
-        {this.props.p.map(p1 =>
+        {/* {this.props.p.map(p1 =>
           p1.data.map(d => (
             
             <div className="kartica" key={d.id}>
               <button type="button" className="korpa" value={d.title}>
                 🛒
               </button>
-              <button type="button" id={d.id} value={d.title} className="fav" onClick={this.props.dodaj}>
-                ♥
-              </button>
               <h1 className="ime">{d.title}</h1> <br />
               <div className="opis">
                 <h5 className="cont">{d.content}</h5>
                 <div className="slika">
                   <img src={d.img} onMouseOver={this.prikazi} />
-                  <input type="button" id={d.title} className="vidljivo" value="Detalji" onClick={this.props.id}/>
+                  <input type="button" className="vidljivo" value="Detalji" />
                 </div>
                 <hr />
                 <h2 className="cenaTekst">
@@ -40,7 +44,7 @@ class Kartica extends Component {
               </div>
             </div>
           ))
-        )}
+        )} */}
 
 
         {/* {this.state.fav.map(f=>(
@@ -54,4 +58,4 @@ class Kartica extends Component {
   }
 }
 
-export default Kartica;
+export default KarticaOmiljeno;

@@ -11,7 +11,14 @@ import { Switch } from 'react-router/esm/react-router';
 import './stranice/proizvodi/proizvodi.css'
 import Futer from './stranice/komponente/futer'
 import Omiljeno from './stranice/komponente/omiljeno'
-function App() {
+import Fav from './stranice/fav/fav'
+import Product from './stranice/komponente/product'
+
+class App extends React.Component {
+
+  render(){
+
+  
   return (
 
     <div className="App">
@@ -22,15 +29,16 @@ function App() {
        <Route exact path="/home" component={Home}/>
        <Route exact path="/onama" component={Onama}/>
        <Route exact path="/proizvodi" component={Proizvodi}/>
-       <Route exact path="/omiljeno" component={Omiljeno}/>
-       {/* <Route path={`${match.url}/:id`} component={Proizvodi}/> */}
+       <Route exact path="/omiljeno" component={Fav}/>
+       <Route exact path="/product" component={Product} />
        <Route component={Error}/>
      </Switch>
      </div>
     <Futer />
     </div>
-
+ 
   );
+}
 }
 
 export default App;
