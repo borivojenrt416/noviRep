@@ -13,6 +13,7 @@ import Futer from './stranice/komponente/futer'
 import Omiljeno from './stranice/komponente/omiljeno'
 import Fav from './stranice/fav/fav'
 import Product from './stranice/komponente/product'
+import Kupovina from './stranice/komponente/kupovina';
 
 class App extends React.Component {
 
@@ -30,6 +31,7 @@ class App extends React.Component {
        <Route exact path="/onama" component={Onama}/>
        <Route exact path="/proizvodi" component={Proizvodi}/>
        <Route exact path="/omiljeno" component={Fav}/>
+       <Route exact path="/kupovina" component={Kupovina}/>
        <Route exact path="/product" component={Product} />
        <Route component={Error}/>
      </Switch>

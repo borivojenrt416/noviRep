@@ -20,7 +20,7 @@ class Kartica extends Component {
           p1.data.map(d => (
             
             <div className="kartica" key={d.id}>
-              <button type="button" className="korpa" value={d.title}>
+              <button type="button" id={d.id} className="korpa" value={d.title} onClick={this.props.kupov}>
                 🛒
               </button>
               <button type="button" id={d.id} value={d.title} className="fav" onClick={this.props.dodaj}>
@@ -41,6 +41,11 @@ class Kartica extends Component {
             </div>
           ))
         )}
+
+
+
+
+
 
 
         {/* {this.state.fav.map(f=>(
