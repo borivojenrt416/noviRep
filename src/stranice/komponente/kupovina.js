@@ -46,25 +46,34 @@ ponovo=()=>
         console.log(niz);
         let niz2 = niz.filter(n => n.title !== value);
     
+    
+        localStorage.setItem("0",JSON.stringify(niz2))
+        var ukupno=0
+        for(let i=0;i<niz2.length;i++)
+        {  
+              console.log(niz2[i])
+              var w =document.getElementById("1".concat(JSON.stringify(niz2[i].title))).value
+              console.log(w)
+              var uInt = parseInt(JSON.parse(w))
+              var tk = JSON.stringify(niz2[i].cena)
+              console.log(tk)
+              var b = tk.replace('.','')
+              console.log(b)
+              var h = JSON.parse(b)
+              console.log(h)
+              ukupno+=uInt*parseInt(h)  
+              console.log(ukupno)
+          
+        }
         this.setState({
           kupljeno: niz2
         });
-        localStorage.setItem("0",JSON.stringify(niz2))
-        var ukupno=0
-    for(let i=0;i<niz2.length;i++)
-    {
-        // for(let k=0;k<this.state.kupljeno[i].length)
-        var a = JSON.stringify(niz2[i].cena)
-        var d = a.replace('.','')
-        var s = JSON.parse(d)
-        ukupno+=parseInt(s)
-    }
-
-    var n = ukupno.toLocaleString()
-    // console.log(this.state.kupljeno[i])
-    this.setState({
-        racun:n
-    })
+        var n = ukupno.toLocaleString()
+        console.log(n)
+        // console.log(this.state.kupljeno[i])
+        this.setState({
+            racun:n
+        })
    
       };
     
@@ -93,6 +102,8 @@ ponovo=()=>
       
       }
 
+
+  
       componentDidMount(){
         this.ponovo()
       }
@@ -102,31 +113,38 @@ ponovo=()=>
           var pamti = ""
             var val = e.target.value;
             var niz = this.state.kupljeno
+            var niz2 = this.state.kupljeno
             for(let i=0;i<niz.length;i++)
             {
-                if(niz[i].title===e.target.id)
+                if("1".concat(JSON.stringify(niz[i].title))===e.target.id)
                 {   
                     pamti=JSON.stringify(niz[i].cena)
-                    var k = JSON.stringify(niz[i].cena)
-                    console.log(k)
-                    var a = k.replace('.','')
-                    console.log(a)
-                    var p = JSON.parse(a)
-                    console.log(p)
-                    niz[i].cena=(parseInt(p)*parseInt(val)).toString()
-                    console.log(niz[i].cena);
+                    // var k = JSON.stringify(niz[i].cena)
+                    // console.log(k)
+                    // var a = k.replace('.','')
+                    // console.log(a)
+                    // var p = JSON.parse(a)
+                    // console.log(p)
+                    // niz[i].cena=(parseInt(p)*parseInt(val)).toString()
+                    // console.log(niz[i].cena);
                 }
                    
             }
 
             var ukupno=0
             for(let i=0;i<niz.length;i++)
-            {
-                // for(let k=0;k<this.state.kupljeno[i].length)
-                var a = niz[i].cena
-                var d = a.replace('.','')
-                var s = JSON.parse(d)
-                ukupno+=parseInt(s)
+            {  
+                  var w =document.getElementById("1".concat(JSON.stringify(niz[i].title))).value
+                  console.log(w)
+                  var uInt = parseInt(JSON.parse(w))
+                  var tk = JSON.stringify(niz[i].cena)
+                  console.log(tk)
+                  var b = tk.replace('.','')
+                  console.log(b)
+                  var h = JSON.parse(b)
+                  console.log(h)
+                  ukupno+=uInt*parseInt(h)  
+              
             }
         
             var n = ukupno.toLocaleString()
@@ -136,7 +154,7 @@ ponovo=()=>
             })
             for(let i=0;i<niz.length;i++)
             {
-                if(niz[i].title===e.target.id)
+                if("1".concat(JSON.stringify(niz[i].title))===e.target.id)
                 niz[i].cena=JSON.parse(pamti)
             }
             console.log(val)
@@ -188,7 +206,7 @@ ponovo=()=>
                       Cena : {om.cena} <span id="cen">RSD</span>
                     </h2>
                     <div class="kol">
-                    KOLICINA : <input id={om.title} type="number" defaultValue="1" onChange={this.promeniCenu} min="1"/>
+                    KOLICINA : <input id={"1".concat(JSON.stringify(om.title))} type="number" defaultValue="1" onChange={this.promeniCenu} min="1"/>
                     </div>
                   </div>
                 </div>

@@ -20,7 +20,7 @@ class Futer extends Component{
     <div className="newsletter">
                 <h3>Prijavite se na Newsletter</h3>
                 <form className="forma">
-                    <input type="email" placeholder="upisite vasu email adresu"/><button type="submit">Prijavi se </button>
+                    <input type="email" placeholder="upisite vasu email adresu"/><button type="button">Prijavi se </button>
                 </form>
     </div>
     <div className="radnoVremeCall">

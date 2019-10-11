@@ -13,13 +13,16 @@ class Kartica extends Component {
 
   render() {
     // console.log(this.props.p[0].data);
+    const visina = {
+      height:'23.5vw'
+    }
     return (
   
       <div>
         {this.props.p.map(p1 =>
           p1.data.map(d => (
             
-            <div className="kartica" key={d.id}>
+            <div className="kartica" style={visina} key={d.id}>
               <button type="button" id={d.id} className="korpa" value={d.title} onClick={this.props.kupov}>
                 🛒
               </button>

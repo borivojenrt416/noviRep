@@ -53,6 +53,9 @@ class Fav extends Component {
   }
 
   render() {
+    const visina = {
+      height:'23.5vw'
+    }
     console.log(this.state.omiljeno);
     
     return (
@@ -61,7 +64,7 @@ class Fav extends Component {
         <Gde />
         <div className="des">
           {this.state.omiljeno.map(om => (
-            <div className="kartica" key={om.id}>
+            <div className="kartica" style={visina} key={om.id}>
               <button type="button" className="korpa" value={om.title}>
                 🛒
               </button>
