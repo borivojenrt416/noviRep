@@ -10,16 +10,16 @@ class Proizvodi extends Component {
     super(props);
     this.state = {
       products:JSON.parse(localStorage.getItem("pr")),
-      kup: JSON.parse(localStorage.getItem("0")),
-      fav: JSON.parse(localStorage.getItem("1"))
+      kup: JSON.parse(localStorage.getItem("kup")),
+      fav: JSON.parse(localStorage.getItem("fav1"))
     };
   }
 
   ubaci=()=>
   {
-    console.log(this.state.products)
+    // console.log(this.state.products)
     var niz = [this.state.products.map(pr=>pr.data.filter(d=>d.best===true))]
-    console.log(niz)
+    // console.log(niz)
     localStorage.setItem("best",JSON.stringify(niz))
 
   }
@@ -37,55 +37,10 @@ class Proizvodi extends Component {
     var objekat = null;
     var br = 0;
     var indeks = 0;
-
+    if(this.state.fav!==null){
     if (this.state.fav.length !== 0) {
       for (let i = 0; i < this.state.fav.length; i++) {
         if (this.state.fav[i].title === e.target.value) {
-          br = 1;
-        }
-      }
-    }
-
-    var objekat = null;
-    // this.setState({
-    //   fav:[]
-    // })
-    if (br === 0) {
-      for (let k = 0; k < this.state.products.length; k++) {
-        for (let i = 0; i < this.state.products[k].data.length; i++) {
-          if (e.target.value === this.state.products[k].data[i].title) {
-            objekat = this.state.products[k].data[i];
-            console.log(this.state.products[k].data[i]);
-          }
-        }
-      }
-    }
-    this.setState({
-      fav: [...this.state.fav, objekat]
-    });
-    niz = this.state.fav;
-    niz.push(objekat);
-    const k = niz.filter(n => n !== null);
-    localStorage.setItem("1", JSON.stringify(k));
-    console.log("session storage items", localStorage.getItem("1"));
-    this.setState({
-      fav: k
-    });
-  };
-
-  kupi = e => {
-    console.log(this.state.kup);
-    var niz = [];
-
-    niz = this.state.kup;
-
-    var objekat = null;
-    var br = 0;
-    var indeks = 0;
-    if(this.state.kup!==null){
-    if (this.state.kup.length !== 0) {
-      for (let i = 0; i < this.state.kup.length; i++) {
-        if (this.state.kup[i].title === e.target.value) {
           br = 1;
         }
       }
@@ -105,17 +60,89 @@ class Proizvodi extends Component {
       }
     }
   }
-  this.setState({
-    kup: [...this.state.kup, objekat]
-  });
-  niz = this.state.kup;
-  niz.push(objekat);
-  const k = niz.filter(n => n !== null);
-  localStorage.setItem("0", JSON.stringify(k));
-  console.log("session storage items", localStorage.getItem("0"));
-  this.setState({
-    kup: k
-  });
+
+  if(this.state.fav===null)
+  {
+    var niz2= [objekat]
+    this.setState({
+      fav: niz2
+     });
+     localStorage.setItem("fav1", JSON.stringify(niz2));
+  }
+  else{
+    var niz3 = []
+    niz3 =this.state.fav
+    niz3.push(objekat)
+    const k = niz3.filter(n => n !== null);
+    localStorage.setItem("fav1", JSON.stringify(k));
+    console.log("session storage items", localStorage.getItem("fav1"));
+    this.setState({
+     fav: k
+    });
+  }
+  console.log(localStorage.getItem("fav1"))
+  
+ 
+
+ 
+  };
+
+  kupi = e => {
+    console.log(this.state.kup);
+    var niz = [];
+
+    niz = this.state.kup;
+
+    var objekat = null;
+    var br = 0;
+    var indeks = 0;
+    if(this.state.kup!==null){
+    if (this.state.kup.length !== 0) {
+      for (let i = 0; i < this.state.kup.length; i++) {
+        if (this.state.kup[i].title === e.target.value) {
+          br = 1;
+        }
+      }
+    }
+   
+  }
+  var objekat = null;
+  // this.setState({
+  //   fav:[]
+  // })
+  if (br === 0) {
+    for (let k = 0; k < this.state.products.length; k++) {
+      for (let i = 0; i < this.state.products[k].data.length; i++) {
+        if (e.target.value === this.state.products[k].data[i].title) {
+          objekat = this.state.products[k].data[i];
+          console.log(this.state.products[k].data[i]);
+        }
+      }
+    }
+  }
+
+  if(this.state.kup===null)
+  {
+    var niz2= [objekat]
+    this.setState({
+      kup: niz2
+     });
+     localStorage.setItem("kup", JSON.stringify(niz2));
+  }
+  else{
+    var niz3 = []
+    niz3 =this.state.kup
+    niz3.push(objekat)
+    const k = niz3.filter(n => n !== null);
+    localStorage.setItem("kup", JSON.stringify(k));
+    console.log("session storage items", localStorage.getItem("kup"));
+    this.setState({
+     kup: k
+    });
+  }
+  console.log(localStorage.getItem("kup"))
+  localStorage.setItem("brojProizvoda",JSON.stringify(this.state.kup.length))
+  
   };
 
   idiNaDetalje = e => {
@@ -137,6 +164,7 @@ class Proizvodi extends Component {
   };
 
   render() {
+  
     return (
       <div>
         <h1>Proizvodi</h1>
@@ -146,6 +174,8 @@ class Proizvodi extends Component {
             dod={this.dodajUOmiljeno}
             idi={this.idiNaDetalje}
             kupovina={this.kupi}
+            
+ 
           />
         </div>
       </div>

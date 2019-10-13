@@ -589,6 +589,7 @@ constructor(props){
         ]
       }
     ],
+    broj : localStorage.getItem("brojProizvoda")
   }
 }
 
@@ -604,13 +605,13 @@ ubaci=()=>{
   localStorage.setItem("best",JSON.stringify(niz))
 }
 
-componentDidMount()
-{
-  this.ubaci()
-}
+// componentDidMount()
+// {
+//   this.ubaci()
+// }
 
   render(){
-
+    this.ubaci()
 
     
   
@@ -623,7 +624,7 @@ componentDidMount()
       <Route exact path="/" component={Home}/>
        <Route exact path="/home" component={Home}/>
        <Route exact path="/onama" component={Onama}/>
-       <Route exact path="/proizvodi" component={Proizvodi}/>
+       <Route exact path="/proizvodi" component={Proizvodi} />
        <Route exact path="/omiljeno" component={Fav}/>
        <Route exact path="/kupovina" component={Kupovina}/>
        <Route exact path="/product" component={Product} />

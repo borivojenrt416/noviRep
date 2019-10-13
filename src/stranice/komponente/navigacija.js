@@ -3,6 +3,20 @@ import {Link} from 'react-router-dom'
 import './navigacija.css'
 
 class Navigacija extends Component{
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             broj : localStorage.getItem("brojProizvoda")
+        }
+    }
+    
+    componentWillUpdate(){
+        this.setState({
+            broj: localStorage.getItem("brojProizvoda")
+        })
+        this.render()
+    }
     render(){
         const styleLinks = {
                 textDecoration : 'none',
@@ -26,7 +40,7 @@ class Navigacija extends Component{
                         <Link to="/onama" style={styleLinks}><li>O NAMA</li></Link>
                         <Link to="/proizvodi" style={styleLinks}><li>PROIZVODI</li></Link>
                         <Link to="/omiljeno" style={desno}><li>♥</li></Link>
-                        <Link to="/kupovina" style={desno}><li>🛒</li></Link>
+                        <Link to="/kupovina" style={desno}><li>🛒{this.state.broj}</li></Link>
                     </ul>
                    
                 </div>

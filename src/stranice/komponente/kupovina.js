@@ -6,7 +6,7 @@ class Kupovina extends Component{
 constructor(props){
     super(props);
     this.state={
-        kupljeno:JSON.parse(localStorage.getItem("0")),
+        kupljeno:JSON.parse(localStorage.getItem("kup")),
         racun:null
     };
     }
@@ -47,7 +47,7 @@ ponovo=()=>
         let niz2 = niz.filter(n => n.title !== value);
     
     
-        localStorage.setItem("0",JSON.stringify(niz2))
+        localStorage.setItem("kup",JSON.stringify(niz2))
         var ukupno=0
         for(let i=0;i<niz2.length;i++)
         {  
@@ -74,7 +74,7 @@ ponovo=()=>
         this.setState({
             racun:n
         })
-   
+        localStorage.setItem("brojProizvoda",JSON.stringify(niz2.length))
       };
     
     
@@ -106,6 +106,9 @@ ponovo=()=>
   
       componentDidMount(){
         this.ponovo()
+        this.setState({
+         kupljeno:JSON.parse(localStorage.getItem("kup"))
+        })
       }
 
 
@@ -162,7 +165,7 @@ ponovo=()=>
       }
 
     render(){
-
+      console.log(localStorage.getItem("kup"))
         const cena2tekst={
             fontSize:'1.5vw',
             float:'left'
@@ -174,7 +177,7 @@ ponovo=()=>
             float:'left',
             
         }
-
+        if(this.state.kupljeno!==null){
         return(
             <div>
             <div className="all" style={stil}>
@@ -221,6 +224,23 @@ ponovo=()=>
                           </div>
                           </div>
         );
+              }
+              else{
+                return(
+<div>
+            <div className="all" style={stil}>
+            <h1>Proizvodi koje zelite da kupite</h1>
+            <Gde />
+            <div className="des">
+             
+
+            </div>
+          
+          </div>
+                          
+                          </div>
+                );
+              }
     }
 }
 

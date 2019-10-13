@@ -45,7 +45,7 @@ idiNaDetalje=(e)=>{
             width:'70%'
         }
         const karta = {
-            height:'23vw'
+            height:'24.5vw'
         }
         console.log(this.state.best)
         return(

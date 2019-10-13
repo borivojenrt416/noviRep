@@ -6,7 +6,7 @@ class Fav extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      omiljeno: JSON.parse(localStorage.getItem("1"))
+      omiljeno: JSON.parse(localStorage.getItem("fav1"))
     };
   }
 
@@ -25,7 +25,7 @@ class Fav extends Component {
     this.setState({
       omiljeno: niz2
     });
-    localStorage.setItem("1",JSON.stringify(niz2))
+    localStorage.setItem("fav1",JSON.stringify(niz2))
   };
 
 
@@ -51,13 +51,21 @@ class Fav extends Component {
   this.props.history.push(path)
   
   }
-
-  render() {
+  componentDidMount(){
+    this.setState({
+      omiljeno:JSON.parse(localStorage.getItem("fav1"))
+    })
+  }
+  render(){
     const visina = {
       height:'23.5vw'
-    }
+    };
+
+
+
     console.log(this.state.omiljeno);
-    
+    if(this.state.omiljeno!==null)
+    {
     return (
       <div>
         <h1>Vasa lista zelja</h1>
@@ -93,6 +101,16 @@ class Fav extends Component {
         </div>
       </div>
     );
+    }
+          else
+          {
+            return(
+            <div>
+            <h1>Vasa lista zelja</h1>
+            <Gde />
+            </div>
+            );
+          }
   }
 }
 
