@@ -127,8 +127,7 @@ constructor(props){
             content: 'C24G1 24 ", VA, 1920 x 1080 Full HD, 1ms',
             cena: "24.999",
             img:
-              "https://www.gigatron.rs/img/products/large/image5c248e45d9d14.png",
-              best:true
+              "https://www.gigatron.rs/img/products/large/image5c248e45d9d14.png"
           },
           {
             id: "m2",
@@ -170,8 +169,7 @@ constructor(props){
             content: '276E8FJAB/00 27", IPS, 2560 x 1440 WQHD, 4ms',
             cena: "36.999",
             img:
-              "https://www.gigatron.rs/img/products/large/image5b928c9a734f3.png",
-              best:true
+              "https://www.gigatron.rs/img/products/large/image5b928c9a734f3.png"
           },
           {
             id: "m7",
@@ -317,8 +315,7 @@ constructor(props){
               '64/4GB (Plava - Neptun Blue) - 6.3", 4 GB, 48.0 Mpix + 5.0 Mpix, 64 GB ',
             cena: "25.999",
             img:
-              "https://www.gigatron.rs/img/products/large/image5ca5f6a2b346d.png",
-              best:true
+              "https://www.gigatron.rs/img/products/large/image5ca5f6a2b346d.png"
           },
           {
             id: "t2",
@@ -584,7 +581,7 @@ constructor(props){
             cena: "47.999",
             img:
               "https://www.gigatron.rs/img/products/large/image5ad76a3b49378.png",
-              best:true
+             
           }
         ]
       }
@@ -597,18 +594,27 @@ ubaci=()=>{
   console.log(this.state.products)
   localStorage.setItem("pr",JSON.stringify(this.state.products))
   var niz = [ this.state.products.map(pr=>pr.data.filter(d=>d.best===true))]
+  var niz3 = []
 
+  console.log(niz3)
+    // console.log(niz2)
+    console.log(niz)
+    localStorage.setItem("best",JSON.stringify(niz))
+  }
 
-
-
-  console.log(niz)
-  localStorage.setItem("best",JSON.stringify(niz))
+promeniState=()=>{
+  console.log("promena izvrsena")
+  console.log(localStorage.getItem("brojProizvoda"))
+  this.setState({
+    broj:localStorage.getItem("brojProizvoda")
+  })
 }
 
-// componentDidMount()
-// {
-//   this.ubaci()
-// }
+
+componentDidMount()
+{
+  this.ubaci()
+}
 
   render(){
     this.ubaci()
@@ -618,15 +624,15 @@ ubaci=()=>{
   return (
 
     <div className="App">
-      <Heder />
+      <Heder brojPr={this.state.broj}/>
       <div className="naziv">
       <Switch>
-      <Route exact path="/" component={Home}/>
+      <Route exact path="/" component={Home} />
        <Route exact path="/home" component={Home}/>
        <Route exact path="/onama" component={Onama}/>
-       <Route exact path="/proizvodi" component={Proizvodi} />
+       <Route exact path="/proizvodi" render={props=><Proizvodi azuriraj = {this.promeniState} />} />
        <Route exact path="/omiljeno" component={Fav}/>
-       <Route exact path="/kupovina" component={Kupovina}/>
+       <Route exact path="/kupovina" render={props=><Kupovina azuriraj={this.promeniState} />}/>
        <Route exact path="/product" component={Product} />
        <Route component={Error}/>
      </Switch>

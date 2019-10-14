@@ -10,23 +10,21 @@ class Proizvodi extends Component {
     super(props);
     this.state = {
       products:JSON.parse(localStorage.getItem("pr")),
-      kup: JSON.parse(localStorage.getItem("kup")),
+      kup: JSON.parse(localStorage.getItem("kupi")),
       fav: JSON.parse(localStorage.getItem("fav1"))
     };
   }
 
-  ubaci=()=>
-  {
-    // console.log(this.state.products)
-    var niz = [this.state.products.map(pr=>pr.data.filter(d=>d.best===true))]
-    // console.log(niz)
-    localStorage.setItem("best",JSON.stringify(niz))
+  // ubaci=()=>
+  // {
+  //   // console.log(this.state.products)
+  //   var niz = [this.state.products.map(pr=>pr.data.filter(d=>d.best===true))]
+  
+ 
 
-  }
-
-  componentDidMount(){
-    this.ubaci()
-  }
+  // componentDidMount(){
+  //   this.ubaci()
+  // }
 
   dodajUOmiljeno = e => {
     console.log(this.state.fav);
@@ -110,12 +108,14 @@ class Proizvodi extends Component {
   // this.setState({
   //   fav:[]
   // })
+  var promena = 0
   if (br === 0) {
     for (let k = 0; k < this.state.products.length; k++) {
       for (let i = 0; i < this.state.products[k].data.length; i++) {
         if (e.target.value === this.state.products[k].data[i].title) {
           objekat = this.state.products[k].data[i];
           console.log(this.state.products[k].data[i]);
+          promena=1
         }
       }
     }
@@ -127,22 +127,29 @@ class Proizvodi extends Component {
     this.setState({
       kup: niz2
      });
-     localStorage.setItem("kup", JSON.stringify(niz2));
+     localStorage.setItem("kupi", JSON.stringify(niz2));
   }
   else{
     var niz3 = []
     niz3 =this.state.kup
     niz3.push(objekat)
     const k = niz3.filter(n => n !== null);
-    localStorage.setItem("kup", JSON.stringify(k));
-    console.log("session storage items", localStorage.getItem("kup"));
+    localStorage.setItem("kupi", JSON.stringify(k));
+    console.log("session storage items", localStorage.getItem("kupi"));
     this.setState({
      kup: k
     });
   }
-  console.log(localStorage.getItem("kup"))
+  console.log(localStorage.getItem("kupi"))
+  if(this.state.kup!==null)
+  {
   localStorage.setItem("brojProizvoda",JSON.stringify(this.state.kup.length))
-  
+  }
+  if(promena===1)
+  {
+    this.props.azuriraj()
+  }
+ 
   };
 
   idiNaDetalje = e => {
@@ -174,7 +181,7 @@ class Proizvodi extends Component {
             dod={this.dodajUOmiljeno}
             idi={this.idiNaDetalje}
             kupovina={this.kupi}
-            
+            azurira = {this.props.azuriraj}
  
           />
         </div>

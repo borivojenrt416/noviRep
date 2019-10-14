@@ -60,15 +60,40 @@ class Fav extends Component {
     const visina = {
       height:'23.5vw'
     };
+    const error={
+      color:'yellow',
+      backgroundColor:'rgb(97,97,97)',
+      width:'90%',
+      margin:'10vw auto',
+      padding:'3vw',
+      clear:'left',
 
 
+    }
+    const stil ={
+      color:'black',
+      width:'100%',
+      float:'left',
+      
+  }
+  const error2={
+    color:'yellow',
+    backgroundColor:'rgb(97,97,97)',
+    width:'100%',
+    margin:'auto',
+    padding:'1.25vw 0'
+
+  }
 
     console.log(this.state.omiljeno);
     if(this.state.omiljeno!==null)
     {
+      if(this.state.omiljeno.length!==0)
+      {
     return (
       <div>
-        <h1>Vasa lista zelja</h1>
+        <div className="all" style={stil}>
+         <h1  style={error2}>Vasi omiljeni proizvodi</h1>
         <Gde />
         <div className="des">
           {this.state.omiljeno.map(om => (
@@ -99,16 +124,45 @@ class Fav extends Component {
             </div>
           ))}
         </div>
-      </div>
+      </div></div>
     );
     }
+    else
+    {
+      return(
+        <div>
+        <div className="all" style={stil}>
+        <h1  style={error2}>Vasi omiljeni proizvodi</h1>
+        
+        <Gde />
+        <div className="des">
+         
+        <h1 style={error} >Vasa lista sa omiljenim proizvodima je prazna!<br/>Molimo Vas, selektujte proizvode koji vam se dopadaju!</h1>
+        </div>
+      
+      </div>
+                      
+                      </div>
+            );
+        
+    }
+  }
           else
           {
             return(
-            <div>
-            <h1>Vasa lista zelja</h1>
-            <Gde />
+              <div>
+              <div className="all" style={stil}>
+              <h1  style={error2}>Vasi omiljeni proizvodi</h1>
+              
+              <Gde />
+              <div className="des">
+               
+              <h1 style={error} >Vasa lista sa omiljenim proizvodima je prazna!<br/>Molimo Vas, selektujte proizvode koji vam se dopadaju!</h1>
+              </div>
+            
             </div>
+                            
+                            </div>
             );
           }
   }

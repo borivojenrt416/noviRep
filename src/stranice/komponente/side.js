@@ -156,7 +156,7 @@ class Side extends Component {
               dodaj={this.props.dod}
               id={this.props.idi}
               kupov={this.props.kupovina}
-              
+              azur={this.props.azurira}
             />
           ))}
         </div>

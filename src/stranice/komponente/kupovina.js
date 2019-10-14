@@ -6,7 +6,7 @@ class Kupovina extends Component{
 constructor(props){
     super(props);
     this.state={
-        kupljeno:JSON.parse(localStorage.getItem("kup")),
+        kupljeno:JSON.parse(localStorage.getItem("kupi")),
         racun:null
     };
     }
@@ -47,7 +47,7 @@ ponovo=()=>
         let niz2 = niz.filter(n => n.title !== value);
     
     
-        localStorage.setItem("kup",JSON.stringify(niz2))
+        localStorage.setItem("kupi",JSON.stringify(niz2))
         var ukupno=0
         for(let i=0;i<niz2.length;i++)
         {  
@@ -75,6 +75,9 @@ ponovo=()=>
             racun:n
         })
         localStorage.setItem("brojProizvoda",JSON.stringify(niz2.length))
+        this.props.azuriraj();
+        console.log(niz2.length)
+        
       };
     
     
@@ -107,7 +110,7 @@ ponovo=()=>
       componentDidMount(){
         this.ponovo()
         this.setState({
-         kupljeno:JSON.parse(localStorage.getItem("kup"))
+         kupljeno:JSON.parse(localStorage.getItem("kupi"))
         })
       }
 
@@ -165,7 +168,7 @@ ponovo=()=>
       }
 
     render(){
-      console.log(localStorage.getItem("kup"))
+      console.log(localStorage.getItem("kupi"))
         const cena2tekst={
             fontSize:'1.5vw',
             float:'left'
@@ -177,11 +180,31 @@ ponovo=()=>
             float:'left',
             
         }
+
+        const error={
+          color:'yellow',
+          backgroundColor:'rgb(97,97,97)',
+          width:'90%',
+          margin:'10vw auto',
+          padding:'3vw'
+        }
+
+        const error2={
+          color:'yellow',
+          backgroundColor:'rgb(97,97,97)',
+          width:'100%',
+          margin:'auto',
+          padding:'1.25vw 0'
+
+        }
+        console.log(this.state.kupljeno)
         if(this.state.kupljeno!==null){
+          if(this.state.kupljeno.length!==0)
+          {
         return(
             <div>
             <div className="all" style={stil}>
-            <h1>Proizvodi koje zelite da kupite</h1>
+            <h1 style={error2}>Proizvodi koje zelite da kupite</h1>
             <Gde />
             <div className="des">
               {this.state.kupljeno.map(om => (
@@ -229,11 +252,12 @@ ponovo=()=>
                 return(
 <div>
             <div className="all" style={stil}>
-            <h1>Proizvodi koje zelite da kupite</h1>
+            <h1  style={error2}>Proizvodi koje zelite da kupite</h1>
+            
             <Gde />
             <div className="des">
              
-
+            <h1 style={error} >Vasa korpa je prazna.<br/>Molimo Vas, stavite zeljene proizvode u korpu!</h1>
             </div>
           
           </div>
@@ -241,6 +265,24 @@ ponovo=()=>
                           </div>
                 );
               }
+            }
+            else{
+              return(
+                <div>
+                            <div className="all" style={stil}>
+                            <h1  style={error2}>Proizvodi koje zelite da kupite</h1>
+                            
+                            <Gde />
+                            <div className="des">
+                             
+                            <h1 style={error} >Vasa korpa je prazna.<br/>Molimo Vas, stavite zeljene proizvode u korpu!</h1>
+                            </div>
+                          
+                          </div>
+                                          
+                                          </div>
+                                );
+            }
     }
 }
 

@@ -5,7 +5,8 @@ class Home extends Component{
 constructor(props){
     super(props);
     this.state={
-        best:JSON.parse(localStorage.getItem("best"))
+        best:JSON.parse(localStorage.getItem("best")),
+       
     }
 }
 idiNaDetalje=(e)=>{
@@ -39,7 +40,9 @@ idiNaDetalje=(e)=>{
   
   }
 }
+  
     render(){
+      
         const st={
             float:'left',
             width:'70%'
@@ -57,10 +60,10 @@ idiNaDetalje=(e)=>{
                 this.state.best.map(bes=>(
                     bes.map(be=>be.map(b=>(
                         <div className="kartica" style = {karta}key={b.id}>
-                        <button type="button" className="korpa" value={b.title}>
+                        {/* <button type="button" className="korpa" value={b.title} onClick={this.kupi}>
                           🛒
-                        </button>
-                        <button type="button" id={b.id} value={b.title} className="fav" onClick={this.props.dodaj}>
+                        </button> */}
+                        <button type="button" id={b.id} value={b.title} className="fav" onClick={this.props.prosao}>
                 ♥
               </button>
                         <h1 className="ime">{b.title}</h1> <br />
