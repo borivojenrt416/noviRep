@@ -128,6 +128,7 @@ class Proizvodi extends Component {
       kup: niz2
      });
      localStorage.setItem("kupi", JSON.stringify(niz2));
+     localStorage.setItem("brojProizvoda",JSON.stringify(niz2.length))
   }
   else{
     var niz3 = []
@@ -139,12 +140,13 @@ class Proizvodi extends Component {
     this.setState({
      kup: k
     });
+    localStorage.setItem("brojProizvoda",JSON.stringify(k.length))
   }
   console.log(localStorage.getItem("kupi"))
-  if(this.state.kup!==null)
-  {
-  localStorage.setItem("brojProizvoda",JSON.stringify(this.state.kup.length))
-  }
+  // if(this.state.kup!==null)
+  // {
+  // localStorage.setItem("brojProizvoda",JSON.stringify(this.state.kup.length))
+  // }
   if(promena===1)
   {
     this.props.azuriraj()

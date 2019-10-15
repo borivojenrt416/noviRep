@@ -633,7 +633,7 @@ componentDidMount()
        <Route exact path="/proizvodi" render={props=><Proizvodi azuriraj = {this.promeniState} />} />
        <Route exact path="/omiljeno" component={Fav}/>
        <Route exact path="/kupovina" render={props=><Kupovina azuriraj={this.promeniState} />}/>
-       <Route exact path="/product" component={Product} />
+       <Route exact path="/:title/:id" component={Product} />
        <Route component={Error}/>
      </Switch>
      </div>

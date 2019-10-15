@@ -1,6 +1,11 @@
 import React,{Component} from 'react'
 import Kartica from './kartica';
 import Gde from './gde'
+
+import {
+  Link,
+} from "react-router-dom";
+
 import './kupovina.css'
 class Kupovina extends Component{
 constructor(props){
@@ -81,14 +86,14 @@ ponovo=()=>
       };
     
     
-      idiNaDetalje=(e)=>{
-        console.log(e.target.id)
+      idiNaDetalje=(id)=>{
+        console.log(id)
         var objec=null;
         console.log(this.state.kupljeno[0])
         for(let k=0;k<this.state.kupljeno.length;k++)
                {
                   
-                       if(e.target.id===this.state.kupljeno[k].title)
+                       if(id===this.state.kupljeno[k].title)
                         {
                        objec=this.state.kupljeno[k]
      
@@ -100,7 +105,7 @@ ponovo=()=>
       localStorage.setItem("2",JSON.stringify(objec));
       console.log(localStorage.getItem("2"))
       let path="/product"
-      this.props.history.push(path)
+      return path;
 
       
       }
@@ -225,7 +230,7 @@ ponovo=()=>
                     <h5 className="cont">{om.content}</h5>
                     <div className="slika">
                       <img src={om.img} onMouseOver={this.prikazi} />
-                      <input type="button" id={om.title} className="vidljivo" value="Detalji" onClick={this.idiNaDetalje}/>
+                      <Link to={this.idiNaDetalje(om.id)} >Detalji</Link>
                     </div>
                     <hr />
                     <h2 className="cenaTekst">

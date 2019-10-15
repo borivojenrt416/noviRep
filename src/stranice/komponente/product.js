@@ -10,6 +10,10 @@ class Product extends Component{
                 obj:JSON.parse(localStorage.getItem("2"))
         }
     }
+
+    componentDidMount(){
+        console.log('props',this.props)
+    }
     
 idiNazad=()=>{
     this.props.history.push("/proizvodi")
